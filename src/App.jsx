@@ -1,9 +1,11 @@
-import Homepage from "./Screens/Homepage";
+
+import LandingPage from "./Screens/LandingPage";
+
 
 export default function App() {
   return (
    <>
-   <Homepage/>
+   <LandingPage/>
    </>
   )
 }

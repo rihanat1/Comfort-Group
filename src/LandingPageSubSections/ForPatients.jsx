@@ -37,7 +37,7 @@ const ForPatients = () => {
       <div className="flex flex-col gap-2 mt-5 mb-4">
         {
             content.map((item)=>
-            <div className="border border-green flex flex-col rounded-md p-4 ">
+            <div key={item.title} className="border border-green flex flex-col rounded-md p-4 ">
                 <p className="font-semibold text-primary text-[16px]">{item.title}</p>
                 <p className="text-secondary text-[15px]">{item.subtitle}</p>
             </div>

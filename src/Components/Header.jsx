@@ -4,36 +4,96 @@ import { RxHamburgerMenu } from 'react-icons/rx'
 import { IoMdClose } from 'react-icons/io'
 
 const Header = () => {
-    const headerList = ["Home", "About Us", "How it works", "Support"]
-    const [toggle, setToggle] = useState(false)
-    function handleToggle(){
-        setToggle(!toggle)
-    }
+  const headerList = ["Home", "About Us", "How it works", "Support Provided", "FAQs"]
+  const [toggle, setToggle] = useState(false)
+  const [active, setActive] = useState(0)
+
+  function handleToggle() {
+    setToggle(!toggle)
+  }
+
+  function handleLink(index) {
+    setActive(index)
+    setToggle(false)
+  }
+
   return (
-    <div className="bg-white z-50 fixed inset-x-0 border-b px-3 lg:px-4 xl:px-12">
-       <div className=" flex  justify-between  items-center  border-2 border-black ">
-        <div className=" z-40 flex items-center">
-            <img src={Logo} alt="logo" className="h-16 w-16" />
-        <h2 className="text-primary mt-2 text-2xl font-bold"><span className="text-green">Comfort</span>Group</h2>
+    <header className="fixed inset-x-0 top-0 z-50 border-b bg-white">
+      <div className="mx-auto flex h-16 max-w-[82rem] items-center justify-between px-3  ">
+
+
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <img src={Logo} alt="logo" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+          <span className="text-sm font-bold text-primary min-[360px]:text-base min-[400px]:text-xl sm:text-2xl">
+            <span className="text-green">Comfort</span>Group
+          </span>
         </div>
-        <div className=" flex gap-2 ">
-            {
-                toggle ?  <IoMdClose onClick={handleToggle} className="h-6 w-6 font-semibold flex z-40 md:hidden" /> :  <RxHamburgerMenu onClick={handleToggle} className="h-6 w-6 font-semibold flex z-40 md:hidden" />
-            }
-           
-           
-            <div className={`absolute md:static md:block inset-x-0 top-16 border-b px-4  ${toggle ? "block" : "hidden"
-               }`}>
-               <ul className="flex flex-col bg-white gap-2 pb-2 pt-9 pl-4 md:flex-row md:gap-8 md:-mt-5 md:bg-transparent   ">
-                {
-                   headerList.map((li,i)=>
-                <li key={i} className={`text-sm md:text-[17px] tracking-wide border-b cursor-pointer py-2 transition-hover ${i==0 ? 'text-green ' : 'hover:text-green'} ${i==headerList.length-1 ? "border-b-0" : ""} md:border-none`}>{li}</li>)
-                }
-               </ul>
-            </div>
+
+
+        <nav className="hidden lg:block" aria-label="Main">
+          <ul className="flex items-center gap-8 xl:gap-10">
+            {headerList.map((li, i) => (
+              <li key={i}>
+                <a
+                  onClick={() => handleLink(i)}
+                  className={`cursor-pointer relative whitespace-nowrap py-2 text-[15px] font-medium tracking-wide transition-colors ${
+                    active === i || i===0 ? 'text-green' : 'text-primary hover:text-green'
+                  } `}
+                >
+                  {li}
+                  <span
+                    className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left rounded bg-green transition-transform duration-300 ${
+                      active === i ? 'scale-x-100' : 'scale-x-0'
+                    }`}
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+    
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <a
+            href="#"
+            className="whitespace-nowrap rounded-lg bg-primary px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-green sm:px-5 sm:py-2.5 sm:text-sm"
+          >
+            Get Support
+          </a>
+
+          <button
+            type="button"
+            onClick={handleToggle}
+            aria-label={toggle ? 'Close menu' : 'Open menu'}
+            aria-expanded={toggle}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-primary sm:h-10 sm:w-10 lg:hidden"
+          >
+            {toggle ? <IoMdClose className="h-6 w-6" /> : <RxHamburgerMenu className="h-6 w-6" />}
+          </button>
         </div>
-       </div>
-    </div>
+      </div>
+
+      <div
+        className={`overflow-hidden bg-white transition-all duration-300 lg:hidden ${
+          toggle ? 'block border-t' : 'hidden'
+        }`}
+      >
+        <ul className="px-4 pb-2 pt-1 md:px-6">
+          {headerList.map((li, i) => (
+            <li key={i} className="border-b last:border-b-0">
+              <a
+                onClick={() => handleLink(i)}
+                className={`block py-3 text-base font-medium ${
+                  active === i ? 'text-green' : 'text-primary'
+                }`}
+              >
+                {li}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </header>
   )
 }
 
