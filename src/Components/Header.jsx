@@ -19,9 +19,9 @@ const Header = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b bg-white">
-      <div className="mx-auto flex h-16 max-w-[82rem] items-center justify-between px-3  ">
+      <div className="mx-auto flex h-16 max-w-[82rem] items-center justify-between px-3">
 
-
+        {/* Logo */}
         <div className="flex items-center gap-1.5 sm:gap-2">
           <img src={Logo} alt="logo" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
           <span className="text-sm font-bold text-primary min-[360px]:text-base min-[400px]:text-xl sm:text-2xl">
@@ -29,16 +29,17 @@ const Header = () => {
           </span>
         </div>
 
-
+        {/* Desktop nav */}
         <nav className="hidden lg:block" aria-label="Main">
           <ul className="flex items-center gap-8 xl:gap-10">
             {headerList.map((li, i) => (
               <li key={i}>
                 <a
-                  onClick={() => handleLink(i)}
-                  className={`cursor-pointer relative whitespace-nowrap py-2 text-[15px] font-medium tracking-wide transition-colors ${
-                    active === i || i===0 ? 'text-green' : 'text-primary hover:text-green'
-                  } `}
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); handleLink(i) }}
+                  className={`relative cursor-pointer whitespace-nowrap py-2 text-[15px] font-medium tracking-wide transition-colors ${
+                    active === i ? 'text-green' : 'text-primary hover:text-green'
+                  }`}
                 >
                   {li}
                   <span
@@ -52,7 +53,7 @@ const Header = () => {
           </ul>
         </nav>
 
-    
+        {/* CTA buttons + hamburger */}
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href="#"
@@ -60,21 +61,28 @@ const Header = () => {
           >
             Get Support
           </a>
+          <a
+            href="#"
+            className="hidden rounded-lg bg-primary px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-green sm:inline-block sm:px-5 sm:py-2.5 sm:text-sm"
+          >
+            Donate
+          </a>
 
           <button
             type="button"
             onClick={handleToggle}
             aria-label={toggle ? 'Close menu' : 'Open menu'}
             aria-expanded={toggle}
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-primary sm:h-10 sm:w-10 lg:hidden"
+            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg text-primary sm:h-10 sm:w-10 lg:hidden"
           >
             {toggle ? <IoMdClose className="h-6 w-6" /> : <RxHamburgerMenu className="h-6 w-6" />}
           </button>
         </div>
       </div>
 
+      {/* Mobile dropdown */}
       <div
-        className={`overflow-hidden bg-white transition-all duration-300 lg:hidden ${
+        className={`bg-white transition-all duration-300 lg:hidden ${
           toggle ? 'block border-t' : 'hidden'
         }`}
       >
@@ -82,8 +90,9 @@ const Header = () => {
           {headerList.map((li, i) => (
             <li key={i} className="border-b last:border-b-0">
               <a
-                onClick={() => handleLink(i)}
-                className={`block py-3 text-base font-medium ${
+                href="#"
+                onClick={(e) => { e.preventDefault(); handleLink(i) }}
+                className={`block cursor-pointer py-3 text-base font-medium transition-colors active:bg-gray-50 ${
                   active === i ? 'text-green' : 'text-primary'
                 }`}
               >

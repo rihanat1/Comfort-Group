@@ -65,7 +65,7 @@ const Hero = () => (
     </div>
 
 
-    <div className="mt-8 grid w-full grid-cols-2 gap-5 rounded-lg bg-cardBg py-4 md:mt-6 md:grid-cols-4 lg:mx-auto lg:mt-9 lg:w-fit lg:gap-7 lg:px-8 lg:py-3 lg:shadow-md xl:mt-0">
+    <div className="mt-8 grid w-full grid-cols-2 gap-5 rounded-lg bg-cardBg  py-4 md:mt-6 md:grid-cols-4 lg:mx-auto lg:mt-9 lg:w-fit lg:gap-7 lg:px-8 lg:py-3 lg:shadow-md xl:mt-0">
       <SupportInfo number="20,000+" text="Patients Supported" />
       <SupportInfo number="200+" text="Donors" />
       <SupportInfo number="₦1,700,000+" text="Support Provided" />

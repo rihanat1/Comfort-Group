@@ -11,7 +11,7 @@ const ForDonors = () => {
   const images = [donor1, donor2, donor3, donor4]
 
   return (
-    <div className="lg:flex lg:flex-row lg:items-center lg:gap-10 border-2 h-fit border-purple-600 my-4 xl:w-[95%] xl:mx-auto">
+    <div className="lg:flex lg:flex-row lg:items-center lg:gap-10 mt-10 h-fit my-4 xl:w-[93%] xl:mx-auto">
 
       <div className="flex flex-col gap-2 lg:w-[40%]">
         <p className="text-green uppercase">For donors</p>

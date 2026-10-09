@@ -19,7 +19,7 @@ const ForPatients = () => {
     },
   ];
   return (
-    <div className="border-2 border-purple-600 my-6 lg:flex lg:gap-6 lg:items-center lg:justify-between lg:px-4 lg:py-4 rounded-lg xl:w-[95%] xl:mx-auto">
+    <div className="my-6 mt-14 lg:flex lg:gap-6 lg:items-center lg:justify-between lg:px-4 lg:py-4 rounded-lg xl:w-[95%] xl:mx-auto">
         <div className="hidden md:block w-full  rounded-xl overflow-hidden xl:w-[50%] ">
             <img src={patient} alt="" className="w-full h-full" />
         </div>

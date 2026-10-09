@@ -6,6 +6,9 @@ import OurSupport from '../LandingPageSubSections/OurSupport'
 import HowItWorks from '../LandingPageSubSections/HowItWorks'
 import ForPatients from '../LandingPageSubSections/ForPatients'
 import ForDonors from '../LandingPageSubSections/ForDonors'
+import Impact from '../LandingPageSubSections/Impact'
+import Faq from '../LandingPageSubSections/Faq'
+import Footer from '../Components/Footer'
 
 const LandingPage = () => {
   return (
@@ -19,8 +22,11 @@ const LandingPage = () => {
           <HowItWorks />
           <ForPatients />
           <ForDonors />
+          {/* <Impact/> */}
+       <Faq/>
         </div>
       </main>
+      <Footer/>
     </div>
   )
 }

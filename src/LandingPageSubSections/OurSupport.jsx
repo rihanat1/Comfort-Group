@@ -16,7 +16,7 @@ const OurSupport = () => {
         }
     ]
   return (
-    <div className="bg-cardBg w-full mt-5 p-2 px-3 lg:py-5 pb-8 lg:pb-12 rounded-[1.5rem] xl:w-[85%] xl:mx-auto">
+    <div className="bg-cardBg w-full mt-14 p-2 px-3 lg:py-5 pb-8 lg:pb-12 rounded-[1.5rem] xl:w-[85%] xl:mx-auto">
        <div className="flex flex-col gap-2 pt-4 lg:items-center">
          <p className="text-green text-[16px] uppercase">support provided</p>
         <p className="text-primary text-2xl font-semibold lg:text-3xl ">We provide support using donated funds</p>
