@@ -13,7 +13,6 @@ export default {
         buttonPrimary:"#0b2a66",
         primary:"#1a1a1a",
         cardBg:"#f1f1f1",
-        footerBg:"linear-gradient(#0aa010, #000 85%);"
       },
        backgroundImage: {
         footerBg: "linear-gradient(#0aa010, #000 85%)",
