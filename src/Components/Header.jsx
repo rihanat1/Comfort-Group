@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b bg-white">
-      <div className="mx-auto flex h-16 w-screen items-center justify-between px-1 md:px-3 xl:w-[90vw] border-2 border-red-700">
+      <div className="mx-auto flex h-16 w-screen items-center justify-between px-1 md:px-3 xl:w-[90vw]">
 
         <div className="flex items-center gap-1.5 sm:gap-2">
           <img src={Logo} alt="logo" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
