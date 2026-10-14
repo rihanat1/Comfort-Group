@@ -47,10 +47,10 @@ const VerificationSubmit = () => {
             ) : (
               <>
                 <p className="text-green text-lg sm:text-xl md:text-2xl font-semibold lg:text-3xl">
-                  Information Submitted!
+                  Information Submitted for Verification!
                 </p>
                 <p className="text-secondary/70 text-sm sm:text-base mt-1">
-                  You can now view your dashboard
+                   You will be notified of your verification status on your dashboard soon...
                 </p>
 
                 <Button1 text="Go to my dashboard" extraStyling="mt-7"/>
