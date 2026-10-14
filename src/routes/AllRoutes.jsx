@@ -10,10 +10,11 @@ import PatientProfile from "../features/patient/pages/PatientProfile.jsx";
 import Notifications from "../features/patient/pages/Notifications.jsx";
 import HelpSupport from "../features/patient/pages/HelpSupport.jsx";
 import PatientNotFound from "../features/patient/pages/PatientNotFound.jsx";
+import LandingPage from "../Screens/LandingPage.jsx";
+
 
 const AllRoutes = [
-  // Swap for <LandingPage /> when merged with Rihanat's work
-  { path: AllPaths.home, element: <Navigate to={AllPaths.patientDashboard} replace /> },
+  { path: AllPaths.home, element: <LandingPage /> },
   {
     path: AllPaths.patientDashboard,
     element: <PatientLayout />,
