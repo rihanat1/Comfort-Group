@@ -16,7 +16,7 @@ const LandingPage = () => {
       <Header />
       <main className="relative top-16">
         <Hero />
-        <div className="flex flex-col gap-2 px-4 md:px-6 lg:px-8 xl:px-16">
+        <div className="flex flex-col gap-2 px-3 sm:px-5 md:px-6 lg:px-7 xl:px-11">
           <AboutUs />
           <OurSupport />
           <HowItWorks />
