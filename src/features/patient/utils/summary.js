@@ -32,3 +32,19 @@ export function getNextSupport(supports) {
 export function daysUntil(date) {
   return Math.max(Math.ceil((new Date(date) - Date.now()) / 86_400_000), 0);
 }
+
+// One entry per category (scheduled ones excluded): total amount and the
+// status of its most recent support.
+export function summaryByCategory(supports, total) {
+  const newestFirst = [...supports].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const groups = {};
+  for (const s of newestFirst) {
+    if (s.status === "scheduled") continue;
+    groups[s.category] ??= { category: s.category, amount: 0, latestStatus: s.status };
+    groups[s.category].amount += s.amount;
+  }
+  return Object.values(groups).map((g) => ({
+    ...g,
+    percent: total ? Math.round((g.amount / total) * 100) : 0,
+  }));
+}

@@ -33,7 +33,7 @@ const Sidebar = ({ patient, unreadCount, open, onClose }) => (
       </div>
     </div>
 
-    {/* Links */}
+     {/* Links  */}
     <nav aria-label="Patient" className="flex-1 overflow-y-auto px-4">
       <ul className="flex flex-col gap-1">
         {navItems.map(({ to, label, icon: Icon, end, showUnread }) => (

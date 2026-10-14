@@ -6,3 +6,4 @@ export { default as IconCircle } from "./IconCircle.jsx";
 export { default as ProgressBar } from "./ProgressBar.jsx";
 export { default as StatCard } from "./StatCard.jsx";
 export { PageError, PageLoader } from "./PageState.jsx";
+export { default as ViewAllLink } from "./ViewAllLink.jsx";
