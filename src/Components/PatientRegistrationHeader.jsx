@@ -1,5 +1,6 @@
 import React from 'react'
-
+import Logo from "../assets/Images/Logo.png"
+import { MdKeyboardArrowLeft } from 'react-icons/md'
 const PatientRegistrationHeader = () => {
   return (
     <div className="border-b-2 sm:px-3 md:px-5 lg:px-12">
@@ -14,7 +15,7 @@ const PatientRegistrationHeader = () => {
              <span className="text-green">Comfort</span>Group
            </span>
           </div>
-         <MdKeyboardArrowLeft className="mr-2 sm:mr-0 text-[30px] cursor-pointer text-primary font-bold border-2 border-black " />
+         <MdKeyboardArrowLeft className="mr-2 sm:mr-0 text-[30px] cursor-pointer text-primary/50 font-bold   " />
          </div>
         </div>
   )
