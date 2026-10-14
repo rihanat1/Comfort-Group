@@ -6,9 +6,9 @@ import VerificationSubmit from "./Screens/VerificationSubmit.jsx";
 export default function App() {
   return (
    <>
-   {/* <LandingPage/> */}
+   <LandingPage/>
    {/* <PatientRegistration/> */}
-   <VerificationSubmit/>
+   {/* <VerificationSubmit/> */}
    </>
   );
 }
