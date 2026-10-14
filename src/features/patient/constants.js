@@ -1,23 +1,16 @@
-// Shared labels for the patient feature, so status text is identical on
-// every screen. Keys must match what the backend sends.
+import { LuAccessibility, LuGraduationCap, LuPackage, LuPill, LuUtensils } from "react-icons/lu";
 
-export const SUPPORT_TYPES = {
-  medication: "Medication",
-  food: "Food",
-  other: "Other support",
+export const CATEGORIES = {
+  medical:   { label: "Medical Support",   icon: LuPill,          color: "#16b81c" },
+  food:      { label: "Food Support",      icon: LuUtensils,      color: "#0b2a66" },
+  education: { label: "Education Support", icon: LuGraduationCap, color: "#0a8f10" },
+  equipment: { label: "Equipment Support", icon: LuAccessibility, color: "#f59e0b" },
+  other:     { label: "Other Support",     icon: LuPackage,       color: "#6b6b6b" },
 };
 
-// Request lifecycle:
-// submitted -> under_review -> approved -> fulfilled
-//                           -> needs_info (patient must respond) -> under_review
-//                           -> rejected
-export const REQUEST_STATUSES = {
-  submitted: { label: "Submitted", tone: "neutral" },
-  under_review: { label: "Under review", tone: "info" },
-  needs_info: { label: "Action needed", tone: "warning" },
-  approved: { label: "Approved", tone: "success" },
-  fulfilled: { label: "Support received", tone: "success" },
-  rejected: { label: "Not approved", tone: "danger" },
+export const STATUSES = {
+  completed:   { label: "Completed",   tone: "success" },
+  in_progress: { label: "In Progress", tone: "info" },
+  pending:     { label: "Pending",     tone: "warning" },
+  scheduled:   { label: "Scheduled",   tone: "navy" },
 };
-
-export const ACTIVE_STATUSES = ["submitted", "under_review", "needs_info", "approved"];

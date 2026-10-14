@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { LuBell, LuMenu } from "react-icons/lu";
 import Avatar from "./Avatar.jsx";
+import AllPaths from "../../../routes/AllPaths.js";
 
 const Topbar = ({ patient, unreadCount, onMenuClick }) => {
   const firstName = patient?.fullName?.split(" ")[0];

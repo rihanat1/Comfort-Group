@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../features/patient/components/Sidebar.jsx";
-import Topbar from "../features/patient/components/Topbar.jsx";
+import Sidebar from "../features/patient/Components/Sidebar.jsx";
+import Topbar from "../features/patient/Components/Topbar.jsx";
 import { getPatientProfile } from "../features/patient/api/patientApi.js";
 import { useAsync } from "../lib/useAsync.js";
 
