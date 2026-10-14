@@ -53,7 +53,7 @@ const VerificationSubmit = () => {
                    You will be notified of your verification status on your dashboard soon...
                 </p>
 
-                <Button1 text="Go to my dashboard" extraStyling="mt-7"/>
+                <Button1 text="Go to my dashboard" extraStyling="mt-7 lg:w-[50%] whitespace-nowrap "/>
               </>
             )}
           </div>
