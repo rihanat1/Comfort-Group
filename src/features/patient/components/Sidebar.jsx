@@ -9,7 +9,7 @@ const Sidebar = ({ patient, unreadCount, open, onClose }) => (
     className={cn(
       "fixed inset-y-0 left-0 z-40 flex w-64 flex-col bg-buttonPrimary text-white transition-transform duration-300",
       "lg:sticky lg:top-0 lg:h-dvh lg:translate-x-0 lg:rounded-tr-[2.5rem]",
-      open ? "translate-x-0" : "-translate-x-full"
+      open ? "translate-x-0" : "-translate-x-full invisible lg:visible"
     )}
   >
     {/* Logo + close button (phones only) */}

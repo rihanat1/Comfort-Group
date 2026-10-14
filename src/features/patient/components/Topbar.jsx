@@ -19,7 +19,7 @@ const Topbar = ({ patient, unreadCount, onMenuClick }) => {
           <p className="truncate text-xs text-secondary">Here's an overview of your support.</p>
         </div>
 
-        <Link to="/patient/notifications" aria-label={`Notifications, ${unreadCount} unread`} className="relative rounded-full p-2 text-primary hover:bg-cardBg">
+        <Link to={AllPaths.patientNotifications} aria-label={`Notifications, ${unreadCount} unread`} className="relative rounded-full p-2 text-primary hover:bg-cardBg">
           <LuBell className="h-5 w-5" />
           {unreadCount > 0 && (
             <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
@@ -28,7 +28,7 @@ const Topbar = ({ patient, unreadCount, onMenuClick }) => {
           )}
         </Link>
 
-        <Link to="/patient/profile" aria-label="Your profile">
+        <Link to={AllPaths.patientProfile} aria-label="Your profile">
           <Avatar name={patient?.fullName} src={patient?.photoUrl} className="h-10 w-10 text-sm" />
         </Link>
       </div>
