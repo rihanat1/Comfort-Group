@@ -48,3 +48,6 @@ export function summaryByCategory(supports, total) {
     percent: total ? Math.round((g.amount / total) * 100) : 0,
   }));
 }
+
+
+export const byNewest = (a, b) => new Date(b.date) - new Date(a.date);

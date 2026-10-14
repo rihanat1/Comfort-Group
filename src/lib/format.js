@@ -26,3 +26,7 @@ export function formatDateTime(value) {
     minute: "2-digit",
   });
 }
+export function formatTime(value) {
+  if (!value) return "";
+  return new Date(value).toLocaleTimeString("en-NG", { hour: "numeric", minute: "2-digit" });
+}

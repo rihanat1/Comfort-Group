@@ -7,4 +7,5 @@ const ViewAllLink = ({ to, children = "View All" }) => (
   </Link>
 );
 
+
 export default ViewAllLink;

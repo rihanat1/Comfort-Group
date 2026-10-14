@@ -1,16 +1,8 @@
 import { LuChartColumn } from "react-icons/lu";
 import { Card, CardHeader, DonutChart } from "../../../../Components/ui";
-import { cn } from "../../../../lib/cn.js";
-import { formatNaira } from "../../../../lib/format.js";
+import LegendRow from "../LegendRow.jsx";
 
-const LegendRow = ({ dotClass, label, amount, percent, textClass }) => (
-  <li className="flex items-center gap-3 text-sm">
-    <span aria-hidden="true" className={cn("h-3 w-3 shrink-0 rounded-full", dotClass)} />
-    <span className="flex-1 text-secondary">{label}</span>
-    <span className={cn("font-semibold", textClass)}>{formatNaira(amount)}</span>
-    <span className={cn("w-10 text-right font-semibold", textClass)}>{percent}%</span>
-  </li>
-);
+
 
 const AllocationOverview = ({ summary, supports }) => {
   const completed = supports.filter((s) => s.status === "completed");
