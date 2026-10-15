@@ -1,11 +1,5 @@
-
-import LandingPage from "./Screens/LandingPage";
-
+aimport PatientRegistrationStep1 from "./Screens/PatientRegistrationStep1";
 
 export default function App() {
-  return (
-   <>
-   <LandingPage/>
-   </>
-  )
+  return <PatientRegistrationStep1 />;
 }
