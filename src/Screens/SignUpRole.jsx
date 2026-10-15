@@ -7,7 +7,7 @@ import patientIcon from "../assets/Images/roles/role-patient.png";
 import donorIcon from "../assets/Images/roles/role-donor.png";
 import vendorIcon from "../assets/Images/roles/role-vendor.png";
 
-// the three cards, kept in a list so we can loop over them
+
 const roles = [
   {
     id: "patient",
@@ -27,19 +27,19 @@ const roles = [
     id: "vendor",
     name: "Vendor",
     icon: vendorIcon,
-    ownCircle: true, // this picture already has its own circle
+    ownCircle: true, 
     description:
       "I want to support patients by providing essential products and services.",
   },
 ];
 
 const SignUpRole = () => {
-  // which card is chosen (patient is chosen by default)
+ 
   const [selectedRole, setSelectedRole] = useState("patient");
 
   const handleContinue = () => {
     console.log("Chosen role:", selectedRole);
-    // later: go to the next sign up page for this role
+    
   };
 
   return (

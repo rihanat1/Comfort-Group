@@ -4,7 +4,7 @@ import LabeledInput from "../Components/LabeledInput";
 import Button1 from "../Components/Button1";
 
 const PatientRegistrationStep1 = () => {
-  // one object that holds everything the user types
+  
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -15,14 +15,13 @@ const PatientRegistrationStep1 = () => {
   });
   const [error, setError] = useState("");
 
-  // runs every time the user types in ANY box
-  // e.target.name tells us which box it was
+  
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // stops the page from refreshing
+    e.preventDefault(); 
 
     if (form.password !== form.confirmPassword) {
       setError("Passwords do not match");
@@ -31,7 +30,7 @@ const PatientRegistrationStep1 = () => {
 
     setError("");
     console.log(form);
-    // later: go to Step 2
+   
   };
 
   return (
@@ -90,7 +89,7 @@ const PatientRegistrationStep1 = () => {
             onChange={handleChange}
           />
 
-          {/* two boxes side by side (stacked on small screens) */}
+       
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-5">
             <LabeledInput
               label="Password"
@@ -111,10 +110,10 @@ const PatientRegistrationStep1 = () => {
           </div>
         </div>
 
-        {/* shows only when the passwords don't match */}
+        
         {error && <p className="mt-4 text-center text-red-500">{error}</p>}
 
-        {/* Next button (Button1 is the shared button) */}
+       
         <button type="submit" className="mt-10 block w-full">
           <div className="mx-auto w-[63%]">
             <Button1 text="Next" />
