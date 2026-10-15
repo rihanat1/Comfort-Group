@@ -1,0 +1,304 @@
+diff --git a/src/Components/RoleCard.jsx b/src/Components/RoleCard.jsx
+new file mode 100644
+index 0000000..043342f
+--- /dev/null
++++ b/src/Components/RoleCard.jsx
+@@ -0,0 +1,52 @@
++import { FiCheck } from "react-icons/fi";
++
++// One card on the "Choose Role" page.
++// Props:
++//   icon        - the picture
++//   roleName    - Patient / Donor / Vendor (shown in green)
++//   description - the small text under the title
++//   selected    - true if this card is the chosen one
++//   onClick     - runs when the card is clicked
++//   iconSize    - size of the icon picture (Tailwind class)
++//   ownCircle   - true if the picture already has the green circle inside it
++const RoleCard = ({
++  icon,
++  roleName,
++  description,
++  selected,
++  onClick,
++  iconSize = "h-10 w-10",
++  ownCircle = false,
++}) => {
++  return (
++    <div
++      onClick={onClick}
++      className={`relative flex cursor-pointer flex-col items-center rounded-3xl border-[3px] bg-white px-8 pb-10 pt-8 text-center shadow-[0_4px_14px_rgba(0,0,0,0.15)] ${
++        selected ? "border-green" : "border-transparent"
++      }`}
++    >
++      {/* green tick, only on the selected card */}
++      {selected && (
++        <div className="absolute right-4 top-4 flex h-7 w-7 items-center justify-center rounded-full bg-green text-white">
++          <FiCheck />
++        </div>
++      )}
++
++      {/* icon inside a light green circle */}
++      {ownCircle ? (
++        <img src={icon} alt={roleName} className="h-20 w-20" />
++      ) : (
++        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-green/10">
++          <img src={icon} alt={roleName} className={iconSize} />
++        </div>
++      )}
++
++      <h2 className="mt-5 text-2xl font-semibold text-secondary/70">
++        I'm a <span className="font-bold text-green">{roleName}</span>
++      </h2>
++      <p className="mt-3 max-w-[260px] text-secondary/60">{description}</p>
++    </div>
++  );
++};
++
++export default RoleCard;
+diff --git a/src/Screens/SignUpRole.jsx b/src/Screens/SignUpRole.jsx
+new file mode 100644
+index 0000000..1b28469
+--- /dev/null
++++ b/src/Screens/SignUpRole.jsx
+@@ -0,0 +1,116 @@
++import { useState } from "react";
++import { MdKeyboardArrowLeft } from "react-icons/md";
++import Logo from "../assets/Images/Logo.png";
++import RoleCard from "../Components/RoleCard";
++import Button1 from "../Components/Button1";
++import patientIcon from "../assets/Images/roles/role-patient.png";
++import donorIcon from "../assets/Images/roles/role-donor.png";
++import vendorIcon from "../assets/Images/roles/role-vendor.png";
++
++// the three cards, kept in a list so we can loop over them
++const roles = [
++  {
++    id: "patient",
++    name: "Patient",
++    icon: patientIcon,
++    description:
++      "I am receiving care at a patient hospital and would like to access patient support.",
++  },
++  {
++    id: "donor",
++    name: "Donor",
++    icon: donorIcon,
++    iconSize: "h-10 w-10",
++    description: "I want to support patients by contributing to cause.",
++  },
++  {
++    id: "vendor",
++    name: "Vendor",
++    icon: vendorIcon,
++    ownCircle: true, // this picture already has its own circle
++    description:
++      "I want to support patients by providing essential products and services.",
++  },
++];
++
++const SignUpRole = () => {
++  // which card is chosen (patient is chosen by default)
++  const [selectedRole, setSelectedRole] = useState("patient");
++
++  const handleContinue = () => {
++    console.log("Chosen role:", selectedRole);
++    // later: go to the next sign up page for this role
++  };
++
++  return (
++    <div className="min-h-screen bg-white">
++      <div className="mx-auto max-w-[1203px] px-6 py-6">
++        {/* back button */}
++        <button
++          type="button"
++          className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-cardBg/60"
++        >
++          <MdKeyboardArrowLeft className="text-[28px] text-secondary/70" />
++        </button>
++
++        {/* logo + tagline */}
++        <div className="mt-4 flex flex-col items-center">
++          <div className="flex items-center">
++            <img src={Logo} alt="logo" className="h-14 w-14 object-contain" />
++            <span className="text-3xl font-bold text-primary">
++              <span className="text-green">Comfort</span>Group
++            </span>
++          </div>
++          <p className="mt-2 text-secondary/70">Support Today. Health Tomorrow.</p>
++        </div>
++
++        {/* titles */}
++        <div className="mt-12 text-center">
++          <h1 className="text-[34px] font-bold text-secondary/70">
++            Create Your Account
++          </h1>
++          <p className="mt-3 text-secondary/60">
++            Join our community and access the support or giving experience that
++            works for you
++          </p>
++          <h2 className="mt-14 text-xl font-semibold text-secondary/70">
++            How would you like to join us?
++          </h2>
++        </div>
++
++        {/* the three cards */}
++        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
++          {roles.map((role) => (
++            <RoleCard
++              key={role.id}
++              icon={role.icon}
++              roleName={role.name}
++              description={role.description}
++              iconSize={role.iconSize}
++              ownCircle={role.ownCircle}
++              selected={selectedRole === role.id}
++              onClick={() => setSelectedRole(role.id)}
++            />
++          ))}
++        </div>
++
++        {/* Continue button */}
++        <div
++          onClick={handleContinue}
++          className="mx-auto mt-14 w-full max-w-[464px]"
++        >
++          <Button1 text="Continue" />
++        </div>
++
++        <p className="mt-6 text-center text-secondary/60">
++          Already have an account?{" "}
++          <a href="#" className="font-semibold text-buttonPrimary underline">
++            Sign in
++          </a>
++        </p>
++      </div>
++    </div>
++  );
++};
++
++export default SignUpRole;
+diff --git a/src/assets/Images/roles/role-donor.png b/src/assets/Images/roles/role-donor.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..6264e36df360b5e339841e063c2bdd4e3425d176
+GIT binary patch
+literal 1064
+zcmV+@1lRkCP)<h;3K|Lk000e1NJLTq001fg001Wl1^@s6d0pCt00009a7bBm000XU
+z000XU0RWnu7ytkO0drDELIAGL9O(c600d`2O+f$vv5yP<VFdsH01k9TSaefwW^{L9
+za%BKUX=iO=p0So=000A{Nkl<Zcmd5=v2Nl(5Pe<~i3AFyyOU@VL3br(O3IX!lqvH`
+zS5l@-NlBTKGM&+-p|tKogf6jtGiw`<jah8ikh~%&_U`!Y?#!EKJ1B#P<~cBMUG$;|
+zT?gps>kgLm*N*}`t@@awCYm04XB0P7=%q0uV6Ec@n6H2Z`tZx<I>ig;9<G(bkZv?#
+z06oB0A*O%(c)~t-=(b$kI1zgLVmb=*mrKlGB6{%~BNbtQI#8IE1x~>WcNK0>1CfKp
+zD!@JM?ixj+t!G+si0jQ@UR{WJ1DN~CakOY>=x0FWes0piK(<JdkC|dVzS9v?pyh&y
+zBr&^)PqC9Ddxc4kC=DLamX9`r6dr%PW3~`0lIVEo(8F$+aC+@M#AMy497{oCS_*fY
+z6rwzA&@TBqa*)yXFl54I8=#U4LrHRViRmtq41U;4ANNt15j#^DGdV%>HYLfY^F6@C
+zM3O-<X9%;C(I@Q1F_hlTtO9)|iHe{qz2`Z}+$NLbz*IOR8S{*G+qCc^*>nRqX1fum
+zqjKEr_~dFTfgc`fvYG^wYrC|QqPkfb_U&X50Wuz86!TM2UNV-b3DVOgk<Csa(#4Um
+z#H^Bh6|fdO6vv}eQc^GVLk|FpKONVjyvB-Qk}V_Xq|%gPP!2T}EP=>QMQ-`uP(9bH
+zAWzgYccXpK#YOs8r+5s=acO8_Pb!q|bk`7CSQkW&$WCx9NZ!(vq~A3cqf$Z(8x3<W
+zJ{4NXc!aSLf_g*df~3HHDr9#GVt$I-o)m4;!4W<Y+(vT^2(i5BVhTb$Y(|p6vO&Qo
+zV5`@214@cg6V+y-&|}-rV!{c)t$fRK2y?!XC+@M7xS4AYG1QY!0kV41y|L3OdXAiq
+zzFy%WtulR+ykz1RKawOnt#SG<=Ox?0;;^mG^h$P27MF@0Q3oGK^0w%-%1q353#H`c
+z!6o+1E?G}2%viqU?IKxD6tOWbv2SCW8hg$%D4Z5Go(Gd1+-XYKNxkJ|t9#+vku8=X
+zHxfR$f*mxvr++kA39rd-sK;uo>AlE=y*BSppM0hzjV;s4s-CryAGM;f6|~ZX%EtL9
+zjjgDaR){hV(%2eWX^m)YjjgGb_K2dM#@5wJt3(-9H1-g!gl(b>lg1vZl_oei5?iDk
+z+BLD0ENiS7I1)z_W$gT}N^<scg<r4$D<2?8wx&{J8HZ@433k4ekZct+)<0B+P6GbG
+iOKEWT;co?B8UF!_Ytg<Z-lD|-0000<MNUMnLSTaPUf!Yr
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/assets/Images/roles/role-patient.png b/src/assets/Images/roles/role-patient.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..45a01fedbddb1315e463786e7bcda6432abf3642
+GIT binary patch
+literal 1907
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/src/assets/Images/roles/role-vendor.png b/src/assets/Images/roles/role-vendor.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..ef92001a7eee86ce7ef1afbd232d13097da9e9d3
+GIT binary patch
+literal 1974
+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
+IM6N<$f_TlHJ^%m!
+
+literal 0
+HcmV?d00001
+
