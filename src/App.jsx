@@ -1,16 +1,12 @@
-
-import LandingPage from "./Screens/LandingPage.jsx";
-import LogInSignUpPage from "./Screens/LogInSignUpPage.jsx";
-import PatientRegistration from "./Screens/PatientRegistration.jsx";
-import VerificationSubmit from "./Screens/VerificationSubmit.jsx";
+import { Route, Routes } from "react-router-dom";
+import AllRoutes from "./Routes/AllRoutes.jsx";
 
 export default function App() {
   return (
-   <>
-   {/* <LandingPage/> */}
-   <LogInSignUpPage/>
-   {/* <PatientRegistration/> */}
-   {/* <VerificationSubmit/> */}
-   </>
+    <Routes>
+      {AllRoutes.map((route) => (
+        <Route key={route.path} path={route.path} element={route.element} />
+      ))}
+    </Routes>
   );
 }

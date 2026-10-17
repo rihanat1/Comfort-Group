@@ -1,10 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const Button1 = ({text,extraStyling}) => {
-
+const Button1 = ({ text, extraStyling, onClick, type = "button", ...rest }) => {
   return (
-    <div className={`w-full bg-buttonPrimary text-white text-center py-3 rounded-lg text-lg hover:bg-green cursor-pointer transition:hover ease-in-out ${extraStyling}`}>{text}</div>
-  )
-}
+    <button
+      type={type}
+      onClick={onClick}
+      className={`w-full bg-buttonPrimary text-white text-center py-3 rounded-lg text-lg hover:bg-green cursor-pointer transition ease-in-out ${extraStyling}`}
+      {...rest}
+    >
+      {text}
+    </button>
+  );
+};
 
-export default Button1
+export default Button1;

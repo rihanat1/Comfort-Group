@@ -10,6 +10,7 @@ import Impact from '../LandingPageSubSections/Impact'
 import Faq from '../LandingPageSubSections/Faq'
 import Footer from '../Components/Footer'
 
+
 const LandingPage = () => {
   return (
     <div>

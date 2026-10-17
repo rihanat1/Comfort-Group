@@ -1,8 +1,11 @@
 import React from "react";
 import Button1 from "../Components/Button1";
 import patient from "../assets/Images/patient.png"
+import { useNavigate } from "react-router-dom";
+import AllPaths from "../Routes/AllPaths";
 
 const ForPatients = () => {
+  const navigate = useNavigate();
 
   const content = [
     {
@@ -44,7 +47,7 @@ const ForPatients = () => {
             )
         }
       </div>
-      <Button1 text="Apply for Support" extraStyling="md:w-[30%] lg:w-[50%]"/>
+      <Button1  onClick={() => navigate(AllPaths.patientLogin)} text="Apply for Support" extraStyling="md:w-[30%] lg:w-[50%]"/>
       </div>
     </div>
   );
