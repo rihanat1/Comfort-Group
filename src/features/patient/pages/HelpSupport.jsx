@@ -33,7 +33,7 @@ const HelpSupport = () => {
     setAccordion(index == accordion ? null : index);
   }
   return (
-    <section className=" ">
+    <section className="mx-2 ">
       <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 mb-16">
         {contents.map((content) => (
           <div
@@ -57,8 +57,8 @@ const HelpSupport = () => {
           </div>
         ))}
       </div>
-      <div className="border rounded-xl shadow-md p-4 xl:p-6 xl:flex xl:flex-row xl:gap-8 xl:items-start">
-        <div className="flex gap-3 pb-6 border-b xl:border-b-0 xl:border-r xl:border-gray-200 xl:pr-8 xl:w-[30%] xl:flex-col xl:gap-4 xl:pb-0">
+      <div className="border rounded-xl shadow-[0_0_10px_#0002] p-4 xl:p-6 xl:flex xl:flex-row xl:gap-8 xl:items-start ">
+        <div className="flex gap-3 pb-6 border-b xl:border-b-0 whitespace-nowrap xl:border-gray-200 xl:pr-8 xl:w-[30%] xl:flex-col xl:gap-4 xl:pb-0">
           <div className="shrink-0 w-12 h-12 xl:w-14 xl:h-14 flex items-center justify-center text-green text-2xl bg-green/10 rounded-full">
             <GrNotes />
           </div>
