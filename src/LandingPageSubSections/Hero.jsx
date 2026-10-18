@@ -5,6 +5,7 @@ import Button2 from "../Components/Button2";
 import SupportInfo from "../Components/SupportInfo";
 import { FaCheck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import AllPaths from "../Routes/AllPaths";
 
 const content = ["Verified patients", "Transparent support", "Tracked impact"];
 
@@ -56,7 +57,7 @@ const Hero = () => {
             style={{ animationDelay: ".3s" }}
           >
             <Button1
-              onClick={() => navigate("/login-signup?role=patient")}
+              onClick={() => navigate(AllPaths.patientLogin)}
               text="Get Patient Support"
             />
             <Button2 text="How It Works" />
