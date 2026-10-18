@@ -11,12 +11,12 @@ const Data = {
 };
 
 const LogInSignUpPage = () => {
-  const { role } = useParams();
-  const navigate = useNavigate();
-  const [form, setForm] = useState(Data);
+  const { role } = useParams()
+  const navigate = useNavigate()
+  const [form, setForm] = useState(Data)
 
   if (role !== "donor" && role !== "patient") {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/" replace />
   }
 
   function handleForm(e) {
