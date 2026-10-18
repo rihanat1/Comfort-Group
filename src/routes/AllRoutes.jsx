@@ -12,7 +12,6 @@ import HelpSupport from "../features/patient/pages/HelpSupport.jsx";
 import PatientNotFound from "../features/patient/pages/PatientNotFound.jsx";
 import LandingPage from "../Screens/LandingPage.jsx";
 
-
 const AllRoutes = [
   { path: AllPaths.home, element: <LandingPage /> },
   {

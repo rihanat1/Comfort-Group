@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Carousel from '../Components/Carousel'
 import Button1 from '../Components/Button1'
 import Button2 from '../Components/Button2'
