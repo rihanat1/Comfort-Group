@@ -2,9 +2,9 @@ import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 // One input box with the label sitting on the border.
-// Props: label, type, value, onChange
+// Props: label, name, type, value, onChange
 // If type is "password" it also shows an eye icon to show/hide the text.
-const InputField = ({ label, type = "text", value, onChange }) => {
+const InputField = ({ label, name, type = "text", value, onChange }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const isPassword = type === "password";
@@ -18,6 +18,7 @@ const InputField = ({ label, type = "text", value, onChange }) => {
       </label>
 
       <input
+        name={name}
         type={inputType}
         value={value}
         onChange={onChange}

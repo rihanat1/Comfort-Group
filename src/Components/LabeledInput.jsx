@@ -19,7 +19,7 @@ const LabeledInput = ({
 
   return (
     <div className="w-full">
-      <label className="mb-2 block text-[15px] text-secondary/70">{label}</label>
+      <label className="mb-1.5 block text-[15px] text-secondary/70">{label}</label>
 
       <div className="relative">
         <input
@@ -28,7 +28,7 @@ const LabeledInput = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className="h-[55px] w-full rounded-lg border border-secondary/50 px-4 pr-12 text-primary outline-none placeholder:text-secondary/30 focus:border-buttonPrimary"
+          className="h-[50px] w-full rounded-lg border border-secondary/50 px-4 pr-12 text-primary outline-none placeholder:text-secondary/30 focus:border-buttonPrimary"
         />
 
         {isPassword && (
