@@ -16,6 +16,9 @@ body{
   opacity: 0;
   animation: heroFade 0.7s ease-out forwards;
 }
+section[id] {
+  scroll-margin-top: 98px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .hero-fade { opacity: 1; animation: none; }

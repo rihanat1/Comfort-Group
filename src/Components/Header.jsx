@@ -5,9 +5,17 @@ import { IoMdClose } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import AllPaths from "../Routes/AllPaths";
 
-const Header = () => {
+const Header = ({ onDonateClick }) => {
   const navigate = useNavigate();
-  const headerList = ["Home", "About Us", "How it works", "Support Provided", "FAQs"];
+
+  const headerList = [
+    { label: "Home", id: "home" },
+    { label: "About Us", id: "about" },
+    { label: "How it works", id: "how-it-works" },
+    { label: "Support Provided", id: "our-support" },
+    { label: "FAQs", id: "faqs" },
+  ];
+
   const [toggle, setToggle] = useState(false);
   const [active, setActive] = useState(0);
 
@@ -15,7 +23,11 @@ const Header = () => {
     setToggle(!toggle);
   }
 
-  function handleLink(index) {
+  function handleLink(id, index) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
     setActive(index);
     setToggle(false);
   }
@@ -23,7 +35,6 @@ const Header = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b bg-white">
       <div className="mx-auto flex h-16 w-screen items-center justify-between px-1 md:px-3 xl:w-[90vw]">
-
  
         <div className="flex items-center gap-1.5 sm:gap-2">
           <img src={Logo} alt="logo" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
@@ -32,31 +43,30 @@ const Header = () => {
           </span>
         </div>
 
-      
+
         <nav className="hidden lg:block" aria-label="Main">
           <ul className="flex items-center gap-8 xl:gap-10">
-            {headerList.map((li, i) => (
-              <li key={i}>
-                <a
-                  href="#"
-                  onClick={(e) => { e.preventDefault(); handleLink(i) }}
+            {headerList.map((item, i) => (
+              <li key={item.id}>
+                <button
+                  onClick={() => handleLink(item.id, i)}
                   className={`relative cursor-pointer whitespace-nowrap py-2 text-[15px] font-medium tracking-wide transition-colors ${
                     active === i ? "text-green" : "text-primary hover:text-green"
                   }`}
                 >
-                  {li}
+                  {item.label}
                   <span
                     className={`absolute inset-x-0 -bottom-0.5 h-0.5 origin-left rounded bg-green transition-transform duration-300 ${
                       active === i ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
-                </a>
+                </button>
               </li>
             ))}
           </ul>
         </nav>
 
-    
+
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <button
             type="button"
@@ -67,6 +77,7 @@ const Header = () => {
           </button>
 
           <button
+            onClick={onDonateClick}
             type="button"
             className="hidden whitespace-nowrap rounded-lg bg-primary px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-green sm:inline-block sm:px-5 sm:py-2.5 sm:text-sm"
           >
@@ -76,7 +87,6 @@ const Header = () => {
           <button
             type="button"
             onClick={handleToggle}
-           
             className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg text-primary sm:h-10 sm:w-10 lg:hidden"
           >
             {toggle ? <IoMdClose className="h-6 w-6" /> : <RxHamburgerMenu className="h-6 w-6" />}
@@ -84,24 +94,23 @@ const Header = () => {
         </div>
       </div>
 
-     
+      
       <div
         className={`bg-white transition-all duration-300 lg:hidden ${
           toggle ? "block border-t" : "hidden"
         }`}
       >
         <ul className="px-4 pb-2 pt-1 md:px-6">
-          {headerList.map((li, i) => (
-            <li key={i} className="border-b last:border-b-0">
-              <a
-                href="#"
-                onClick={(e) => { e.preventDefault(); handleLink(i) }}
-                className={`block cursor-pointer py-3 text-base font-medium transition-colors active:bg-gray-50 ${
+          {headerList.map((item, i) => (
+            <li key={item.id} className="border-b last:border-b-0">
+              <button
+                onClick={() => handleLink(item.id, i)}
+                className={`block w-full text-left cursor-pointer py-3 text-base font-medium transition-colors active:bg-gray-50 ${
                   active === i ? "text-green" : "text-primary"
                 }`}
               >
-                {li}
-              </a>
+                {item.label}
+              </button>
             </li>
           ))}
         </ul>

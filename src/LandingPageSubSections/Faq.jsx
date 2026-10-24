@@ -49,7 +49,7 @@ const Faq = () => {
     setAccordion(index === accordion ? null : index);
   }
   return (
-    <div className="mt-10 lg:mt-20 xl:mt-28 mb-5 md:px-2 md:flex md:flex-row  md:justify-between lg:px-4 xl:w-[95%] xl:mx-auto">
+    <section id="faqs" className="mt-10 lg:mt-20 xl:mt-28 mb-5 md:px-2 md:flex md:flex-row  md:justify-between lg:px-4 xl:w-[95%] xl:mx-auto">
       <div className="mb-4 md:mt-20 md:w-[40%] lg:w-[30%]">
         <p className="text-green uppercase">FAQ</p>
         <p className="text-2xl text-primary font-semibold my-2 md:text-3xl lg:text-4xl">
@@ -75,7 +75,7 @@ const Faq = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

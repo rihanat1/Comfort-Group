@@ -9,11 +9,11 @@ import donor4 from "../assets/Images/donor4.png"
 import { useNavigate } from "react-router-dom";
 import AllPaths from '../Routes/AllPaths'
 
-const ForDonors = () => {
+const ForDonors = ({onDonateClick}) => {
   const images = [donor1, donor2, donor3, donor4]
   const navigate = useNavigate();
   return (
-    <div className="lg:flex lg:flex-row lg:items-center lg:gap-10 mt-10 h-fit my-4 xl:w-[93%] xl:mx-auto">
+    <section id="for-donors" className="lg:flex lg:flex-row lg:items-center lg:gap-10 mt-10 h-fit my-4 xl:w-[93%] xl:mx-auto">
 
       <div className="flex flex-col gap-2 lg:w-[40%]">
         <p className="text-green uppercase">For donors</p>
@@ -25,7 +25,7 @@ const ForDonors = () => {
         </p>
 
         <div className="flex flex-col gap-2 md:flex-row lg:w-full">
-          <Button1 text="Donate Now" extraStyling="md:w-[20%] lg:w-[50%]" />
+          <Button1  onClick={onDonateClick} text="Donate Now" extraStyling="md:w-[20%] lg:w-[50%]" />
           <Button2 text="See Our Impact" extraStyling="md:w-[20%] lg:w-[50%]" />
         </div>
 
@@ -59,7 +59,7 @@ const ForDonors = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 

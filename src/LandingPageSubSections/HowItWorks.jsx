@@ -24,7 +24,7 @@ const HowItWorks = () => {
         }
     ]
   return (
-    <div className='mt-14 flex flex-col gap-5 lg:gap-0 lg:mb-6 xl:w-[92%] xl:mx-auto'>
+    <section id="how-it-works" className='mt-14 flex flex-col gap-5 lg:gap-0 lg:mb-6 xl:w-[92%] xl:mx-auto'>
         <div className="flex flex-col gap-4 lg:gap-2  lg:items-center ">
             <p className="text-green text-[16px] uppercase">How it works</p>
         <p className="text-primary text-2xl font-semibold lg:text-3xl lg:mb-4">Simple Support. Clear Process.</p>
@@ -44,7 +44,7 @@ const HowItWorks = () => {
          <div className="hidden lg:block w-full rounded-b-xl overflow-hidden">
                 <img src={holdingphonenew} alt="" className="object-cover object-center h-[230px] w-full " />
             </div>
-    </div>
+    </section>
   )
 }
 

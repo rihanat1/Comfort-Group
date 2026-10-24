@@ -3,7 +3,7 @@ import aboutUsImg from "../assets/Images/aboutUsImg.png"
 import Button1 from '../Components/Button1'
 const AboutUs = () => {
   return (
-    <div className=' mt-4 lg:my-9 lg:mt-12 xl:w-[93%] xl:mx-auto'>
+    <section id="about" className=' mt-4 lg:my-9 lg:mt-12 xl:w-[93%] xl:mx-auto'>
              <p className="text-[16px] lg:hidden text-greenDark uppercase tracking-wider  py-4 ">About Us</p>
        <div className="lg:flex lg:flex-row lg:gap-5 lg:items-center">
          <div className="rounded-lg overflow-hidden lg:w-fit lg:h-96">
@@ -18,7 +18,7 @@ const AboutUs = () => {
         <Button1 text="Learn More" extraStyling="md:w-[30%] "/>
        </div>
        </div>
-    </div>
+    </section>
   )
 }
 

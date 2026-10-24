@@ -13,7 +13,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="overflow-hidden px-4 pb-10 pt-5 md:px-6 lg:px-8 lg:pb-14 lg:pt-0 xl:px-16">
+    <section id="home" className="overflow-hidden px-4 pb-10 pt-5 md:px-6 lg:px-8 lg:pb-14 lg:pt-0 xl:px-16">
       <div className="flex flex-col lg:flex-row-reverse lg:items-center lg:gap-12 xl:mx-auto xl:w-[95%] xl:h-[80dvh]">
         <div className="hero-fade relative lg:w-1/2 [animationDelay: '.1s']">
           <div className="absolute inset-0 hidden translate-x-4 translate-y-4 rounded-3xl border-2 border-green lg:block" />
