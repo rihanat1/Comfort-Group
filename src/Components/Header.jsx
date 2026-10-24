@@ -21,7 +21,7 @@ const Header = () => {
     <header className="fixed inset-x-0 top-0 z-50 border-b bg-white">
       <div className="mx-auto flex h-16 max-w-[82rem] items-center justify-between px-3">
 
-        {/* Logo */}
+   
         <div className="flex items-center gap-1.5 sm:gap-2">
           <img src={Logo} alt="logo" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
           <span className="text-sm font-bold text-primary min-[360px]:text-base min-[400px]:text-xl sm:text-2xl">
@@ -29,7 +29,7 @@ const Header = () => {
           </span>
         </div>
 
-        {/* Desktop nav */}
+   
         <nav className="hidden lg:block" aria-label="Main">
           <ul className="flex items-center gap-8 xl:gap-10">
             {headerList.map((li, i) => (
@@ -53,7 +53,7 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* CTA buttons + hamburger */}
+   
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href="#"
@@ -80,7 +80,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile dropdown */}
+  
       <div
         className={`bg-white transition-all duration-300 lg:hidden ${
           toggle ? 'block border-t' : 'hidden'
