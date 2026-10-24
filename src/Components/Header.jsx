@@ -68,7 +68,6 @@ const Header = () => {
 
           <button
             type="button"
-             onClick={() => navigate(AllPaths.donorLogin)}
             className="hidden whitespace-nowrap rounded-lg bg-primary px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-green sm:inline-block sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Donate

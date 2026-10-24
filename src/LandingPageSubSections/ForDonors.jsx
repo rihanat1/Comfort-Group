@@ -25,7 +25,7 @@ const ForDonors = () => {
         </p>
 
         <div className="flex flex-col gap-2 md:flex-row lg:w-full">
-          <Button1  onClick={() => navigate(AllPaths.donorLogin)} text="Donate Now" extraStyling="md:w-[20%] lg:w-[50%]" />
+          <Button1 text="Donate Now" extraStyling="md:w-[20%] lg:w-[50%]" />
           <Button2 text="See Our Impact" extraStyling="md:w-[20%] lg:w-[50%]" />
         </div>
 
