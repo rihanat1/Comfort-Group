@@ -3,6 +3,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import PatientRegistrationHeader from "../Components/PatientRegistrationHeader";
 import Button1 from "../Components/Button1";
 import Button2 from "../Components/Button2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Data = {
   name: "",
@@ -14,9 +15,14 @@ const LogInSignUpPage = () => {
   const { role } = useParams()
   const navigate = useNavigate()
   const [form, setForm] = useState(Data)
+  const [toggle, setToggle] = useState(false)
 
   if (role !== "donor" && role !== "patient") {
     return <Navigate to="/" replace />
+  }
+
+  function handleToggle(){
+    setToggle(!toggle)
   }
 
   function handleForm(e) {
@@ -43,10 +49,10 @@ const LogInSignUpPage = () => {
     <div className="min-h-screen bg-gray-50">
       <PatientRegistrationHeader />
 
-      <div className="flex justify-center px-4 py-10 sm:px-6 sm:py-14">
-        <div className="w-full max-w-md md:max-w-xl lg:max-w-2xl">
+      <div className="flex justify-center px-4 py-10 sm:px-6 sm:py-14 ">
+        <div className="w-full  md:max-w-2xl lg:max-w-3xl">
          
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 sm:p-8 md:p-10">
+          <div className="lg:pb-20 bg-white border border-gray-200 rounded-2xl shadow-sm p-6 sm:p-8 md:p-10">
             <h2 className="text-xl sm:text-2xl font-semibold text-primary leading-tight">
               {heading}
             </h2>
@@ -74,7 +80,7 @@ const LogInSignUpPage = () => {
               </div>
 
             
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-1.5 relative">
                 <div className="flex items-center justify-between">
                   <label
                     htmlFor="password"
@@ -92,12 +98,16 @@ const LogInSignUpPage = () => {
                 </div>
                 <input
                   id="password"
-                  type="password"
+                  type={toggle ? "password" : "text"}
                   name="password"
                   value={form.password}
                   onChange={handleForm}
                   className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm sm:text-base text-primary placeholder:text-gray-400 outline-none "
                 />
+                <div
+                 onClick={handleToggle} className="absolute w-fit bottom-3 text-lg right-2">{
+                  toggle ? <FaEyeSlash/> : <FaEye/> 
+                  }</div>
               </div>
 
               <Button1 type="submit" text="Log In" />
