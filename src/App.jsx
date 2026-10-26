@@ -7,7 +7,7 @@ import SecurityVerification from "./Screens/SecurityVerification";
 export default function App() {
   return (
     <>
-      {/* Only the page WITHOUT the comment marks shows on screen */}
+      
       {/* <SignIn /> */}
       {/* <SignUpRole /> */}
       <PatientRegistrationStep1 />
