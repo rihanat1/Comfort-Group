@@ -6,7 +6,8 @@ import Button1 from "../Components/Button1";
 const PatientRegistrationStep1 = () => {
   // one object that holds everything the user types
   const [form, setForm] = useState({
-    fullName: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     dob: "",
@@ -45,7 +46,7 @@ const PatientRegistrationStep1 = () => {
       {/* flex-1 + justify-center = the form sits in the middle of the screen */}
       <form
         onSubmit={handleSubmit}
-        className="mx-auto flex w-full max-w-[760px] flex-1 flex-col justify-center px-4 py-4"
+        className="mx-auto flex w-full max-w-[760px] flex-1 flex-col justify-center px-4 py-2"
       >
         {/* Title + step */}
         <div className="leading-[22px]">
@@ -55,7 +56,7 @@ const PatientRegistrationStep1 = () => {
           <p className="mt-1 text-[15px] text-secondary/80">Step 1 of 3</p>
         </div>
 
-        <hr className="my-4 border-t-2 border-cardBg" />
+        <hr className="my-2 border-t-2 border-cardBg" />
 
         <h2 className="text-xl font-semibold text-secondary/80">
           Basic information
@@ -63,12 +64,19 @@ const PatientRegistrationStep1 = () => {
         <p className="mt-1 text-secondary/60">Tell us a little about yourself.</p>
 
         {/* The fields: 2 boxes per row (1 per row on small screens) */}
-        <div className="mt-5 grid grid-cols-1 gap-x-5 gap-y-4 sm:grid-cols-2">
+        <div className="mt-3 grid grid-cols-1 gap-x-5 gap-y-2 sm:grid-cols-2">
           <LabeledInput
-            label="Full Name"
-            name="fullName"
-            placeholder="Enter your full name"
-            value={form.fullName}
+            label="First Name"
+            name="firstName"
+            placeholder="Enter your first name"
+            value={form.firstName}
+            onChange={handleChange}
+          />
+          <LabeledInput
+            label="Last Name"
+            name="lastName"
+            placeholder="Enter your last name"
+            value={form.lastName}
             onChange={handleChange}
           />
           <LabeledInput
@@ -87,13 +95,17 @@ const PatientRegistrationStep1 = () => {
             value={form.phone}
             onChange={handleChange}
           />
-          <LabeledInput
-            label="Date of Birth"
-            name="dob"
-            placeholder="DD/MM/YYYY"
-            value={form.dob}
-            onChange={handleChange}
-          />
+
+          {/* sm:col-span-2 = this box takes the whole row */}
+          <div className="sm:col-span-2">
+            <LabeledInput
+              label="Date of Birth"
+              name="dob"
+              placeholder="DD/MM/YYYY"
+              value={form.dob}
+              onChange={handleChange}
+            />
+          </div>
 
           <LabeledInput
             label="Password"
@@ -114,16 +126,16 @@ const PatientRegistrationStep1 = () => {
         </div>
 
         {/* shows only when the passwords don't match */}
-        {error && <p className="mt-3 text-center text-red-500">{error}</p>}
+        {error && <p className="mt-2 text-center text-red-500">{error}</p>}
 
         {/* Next button (Button1 is the shared button) */}
-        <button type="submit" className="mt-6 block w-full">
+        <button type="submit" className="mt-4 block w-full">
           <div className="mx-auto w-[63%]">
             <Button1 text="Next" />
           </div>
         </button>
 
-        <p className="mt-4 text-center text-secondary/60">
+        <p className="mt-2 text-center text-secondary/60">
           Already have an account?{" "}
           <a href="#" className="font-semibold text-buttonPrimary underline">
             Sign in
