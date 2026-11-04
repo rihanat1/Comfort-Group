@@ -3,16 +3,20 @@ import SignUpRole from "./Screens/SignUpRole";
 import PatientRegistrationStep1 from "./Screens/PatientRegistrationStep1";
 import PatientRegistrationStep2 from "./Screens/PatientRegistrationStep2";
 import SecurityVerification from "./Screens/SecurityVerification";
+import DonorDashboard from "./Screens/DonorDashboard";
+import DonorDonate from "./Screens/DonorDonate";
 
 export default function App() {
   return (
     <>
-      
+      {/* Only the page WITHOUT the comment marks shows on screen */}
       {/* <SignIn /> */}
       {/* <SignUpRole /> */}
-      <PatientRegistrationStep1 />
+      {/* <PatientRegistrationStep1 /> */}
       {/* <PatientRegistrationStep2 /> */}
       {/* <SecurityVerification /> */}
+      {/* <DonorDashboard /> */}
+      <DonorDonate />
     </>
   );
 }
