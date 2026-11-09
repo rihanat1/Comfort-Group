@@ -1,15 +1,10 @@
-import React, { useState } from "react";
-import { AiOutlineProfile, AiOutlineQuestionCircle } from "react-icons/ai";
-import { FaRegHeart } from "react-icons/fa";
+import React from "react";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
-import { IoMdNotificationsOutline } from "react-icons/io";
 import { IoReceiptOutline, IoTimeOutline, IoWalletOutline } from "react-icons/io5";
 import { MdHistory } from "react-icons/md";
-import { VscGraph } from "react-icons/vsc";
 
-const SideBarContents = () => {
-  const [activeItem, setActiveItem] = useState("New Orders");
-
+const SideBarContents = ({ activeItem, setActiveItem, handleSideBar }) => {
   const sideBarItems = [
     { name: "New Orders", icon: <IoReceiptOutline /> },
     { name: "Order History", icon: <IoTimeOutline /> },
@@ -27,7 +22,12 @@ const SideBarContents = () => {
           return (
             <li
               key={item.name}
-              onClick={() => setActiveItem(item.name)}
+              onClick={() => {
+                setActiveItem(item.name)    
+                if (window.innerWidth < 1024) {
+                  handleSideBar();
+                }
+              }}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-[15px] cursor-pointer transition-colors duration-200 ${
                 isActive
                   ? "bg-green/95 text-white font-medium"

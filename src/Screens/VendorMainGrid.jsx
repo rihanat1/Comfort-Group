@@ -4,21 +4,45 @@ import SideBarContents from "../VendorDashboardContents/SideBarContents";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import image from "../assets/Images/image.png";
+import NewOrders from "../VendorDashboardContents/SideBarContentscomponents/NewOrders";
+import OrderHistory from "../VendorDashboardContents/SideBarContentscomponents/OrderHistory";
+import DonationHistory from "../VendorDashboardContents/SideBarContentscomponents/DonationHistory";
+import Wallet from "../VendorDashboardContents/SideBarContentscomponents/Wallet";
+import Settings from "../VendorDashboardContents/SideBarContentscomponents/Settings";
+import Support from "../VendorDashboardContents/SideBarContentscomponents/Support";
 
 const VendorMainGrid = () => {
   const [toggleSideBar, setToggleSideBar] = useState(false);
+  const [activeItem, setActiveItem] = useState("New Orders");
+
   const handleSideBar = () => setToggleSideBar(!toggleSideBar);
 
+  const renderContent = () => {
+    switch (activeItem) {
+      case "New Orders":
+        return <NewOrders/>
+      case "Order History":
+        return <OrderHistory/>
+      case "Donation History":
+        return <DonationHistory />
+      case "Wallet":
+        return <Wallet/>
+      case "Settings":
+        return <Settings/>
+      case "Support":
+        return <Support/>
+      default:
+        return <NewOrders/>
+    }
+  };
   return (
     <div className="min-h-screen bg-gray-50 grid grid-cols-1 lg:grid-cols-[240px_1fr]">
-   
       {toggleSideBar && (
         <div
           onClick={handleSideBar}
           className="fixed inset-0 bg-black/10 z-50 lg:hidden"
         />
       )}
-
 
       <aside
         className={`fixed lg:sticky lg:top-0 inset-y-0 left-0 z-50 w-60 lg:w-full h-screen
@@ -39,12 +63,14 @@ const VendorMainGrid = () => {
           </span>
         </div>
 
-        <SideBarContents />
+        <SideBarContents
+          activeItem={activeItem}
+          setActiveItem={setActiveItem}
+          handleSideBar={handleSideBar}
+        />
       </aside>
 
-      
       <div className="flex flex-col px-2">
-
         <header className="sticky top-0 z-30 bg-gray-50 pt-3 pb-2">
           <div className="border flex justify-between items-center py-3 rounded-full px-2 lg:pl-5 shadow-lg bg-white">
             <div className="flex gap-4 items-center">
@@ -73,9 +99,7 @@ const VendorMainGrid = () => {
           </div>
         </header>
 
-        <main className="mt-2 mx-2 px-2 py-2 ">
-          Content
-        </main>
+        <main className="mt-2 mx-2 px-2 py-2 ">{renderContent()}</main>
       </div>
     </div>
   );
