@@ -1,12 +1,12 @@
 
-import LandingPage from "./Screens/LandingPage";
-import DonorMainGrid from "./Screens/DonorMainGrid";
+// import LandingPage from "./Screens/LandingPage";
+import VendorMainGrid from "./Screens/VendorMainGrid";
 
 export default function App() {
   return (
    <>
    {/* <LandingPage/> */}
-   <DonorMainGrid/>
+   <VendorMainGrid/>
    </>
   )
 }

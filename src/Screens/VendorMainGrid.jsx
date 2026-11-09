@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Logo from "../assets/Images/Logo.png";
-import SideBarContents from "../DonorDashboardContents/SideBarContents";
+import SideBarContents from "../VendorDashboardContents/SideBarContents";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import image from "../assets/Images/image.png";
 
-const DonorMainGrid = () => {
+const VendorMainGrid = () => {
   const [toggleSideBar, setToggleSideBar] = useState(false);
   const handleSideBar = () => setToggleSideBar(!toggleSideBar);
 
@@ -15,7 +15,7 @@ const DonorMainGrid = () => {
       {toggleSideBar && (
         <div
           onClick={handleSideBar}
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/10 z-50 lg:hidden"
         />
       )}
 
@@ -46,16 +46,16 @@ const DonorMainGrid = () => {
       <div className="flex flex-col px-2">
 
         <header className="sticky top-0 z-30 bg-gray-50 pt-3 pb-2">
-          <div className="border flex justify-between items-center py-3 rounded-full px-2 shadow-lg bg-white">
+          <div className="border flex justify-between items-center py-3 rounded-full px-2 lg:pl-5 shadow-lg bg-white">
             <div className="flex gap-4 items-center">
               <div onClick={handleSideBar} className="cursor-pointer lg:hidden">
-                <RxHamburgerMenu className="text-primary text-[20px] ml-2" />
+                <RxHamburgerMenu className="text-primary text-[18px] md:text-[20px] ml-2" />
               </div>
               <div className="flex flex-col leading-[18px]">
-                <p className="text-green font-semibold text-[16px]">
+                <p className="text-green font-semibold text-[13px] sm:text-[14px]">
                   Darrel Steward
                 </p>
-                <p className="text-secondary text-[13px]">
+                <p className="text-secondary text-[12px] sm:text-[13px] md:text-[15px]">
                   Thank you for helping patients get the care they deserve!
                 </p>
               </div>
@@ -73,7 +73,7 @@ const DonorMainGrid = () => {
           </div>
         </header>
 
-        <main className="mt-2">
+        <main className="mt-2 mx-2 px-2 py-2 ">
           Content
         </main>
       </div>
@@ -81,4 +81,4 @@ const DonorMainGrid = () => {
   );
 };
 
-export default DonorMainGrid;
+export default VendorMainGrid;

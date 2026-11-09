@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { AiOutlineProfile, AiOutlineQuestionCircle } from "react-icons/ai";
 import { FaRegHeart } from "react-icons/fa";
+import { FiSettings } from "react-icons/fi";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoReceiptOutline, IoTimeOutline, IoWalletOutline } from "react-icons/io5";
 import { MdHistory } from "react-icons/md";
-import { PiHouseLine } from "react-icons/pi";
 import { VscGraph } from "react-icons/vsc";
 
 const SideBarContents = () => {
-  const [activeItem, setActiveItem] = useState("Dashboard");
+  const [activeItem, setActiveItem] = useState("New Orders");
 
   const sideBarItems = [
-    { name: "Dashboard", icon: <PiHouseLine /> },
-    { name: "Donate", icon: <FaRegHeart /> },
+    { name: "New Orders", icon: <IoReceiptOutline /> },
+    { name: "Order History", icon: <IoTimeOutline /> },
     { name: "Donation History", icon: <MdHistory /> },
-    { name: "My Impact", icon: <VscGraph /> },
-    { name: "Notification", icon: <IoMdNotificationsOutline /> },
-    { name: "Profile", icon: <AiOutlineProfile /> },
-    { name: "Help & Support", icon: <AiOutlineQuestionCircle /> },
+    { name: "Wallet", icon: <IoWalletOutline /> },
+    { name: "Settings", icon: <FiSettings /> },
+    { name: "Support", icon: <AiOutlineQuestionCircle /> },
   ];
 
   return (
