@@ -34,7 +34,7 @@ const HelpSupport = () => {
   }
   return (
     <section className="mx-2 ">
-      <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 mb-16">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 mb-10 xl:mb-8">
         {contents.map((content) => (
           <div
             key={content.title}
@@ -72,7 +72,7 @@ const HelpSupport = () => {
           </div>
         </div>
 
-        <div className="mt-4 xl:mt-0 xl:w-[70%] h-[446px] flex flex-col gap-3 overflow-y-scroll [scrollbar-width:thin] [scrollbar-color:#0b2a66_#f3f4f6] pr-2">
+        <div className="mt-4 xl:mt-0 xl:w-[70%] h-[446px] xl:h-[379px] flex flex-col gap-3 overflow-y-scroll [scrollbar-width:thin] [scrollbar-color:#0b2a66_#f3f4f6] pr-2">
           {questions.map((q, i) => (
             <div
               key={i}

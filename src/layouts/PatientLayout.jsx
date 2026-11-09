@@ -12,7 +12,7 @@ const PatientLayout = () => {
 
   return (
     <div className="min-h-dvh bg-white lg:flex">
-      {/* Dark backdrop behind the mobile menu — tap to close */}
+    
       {menuOpen && (
         <div aria-hidden="true" onClick={() => setMenuOpen(false)} className="fixed inset-0 z-30 bg-black/40 lg:hidden" />
       )}
