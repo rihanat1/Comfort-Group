@@ -72,7 +72,7 @@ const VendorMainGrid = () => {
 
       <div className="flex flex-col px-2">
         <header className="sticky top-0 z-30 bg-gray-50 pt-3 pb-2">
-          <div className="border flex justify-between items-center py-3 rounded-full px-2 lg:pl-5 shadow-lg bg-white">
+          <div className="border flex justify-between items-center py-3 rounded-full px-2 lg:pl-5 shadow-sm lg:shadow-md bg-white">
             <div className="flex gap-4 items-center">
               <div onClick={handleSideBar} className="cursor-pointer lg:hidden">
                 <RxHamburgerMenu className="text-primary text-[18px] md:text-[20px] ml-2" />
@@ -99,7 +99,7 @@ const VendorMainGrid = () => {
           </div>
         </header>
 
-        <main className="mt-2 mx-2 px-2 py-2 ">{renderContent()}</main>
+        <main className="mt-2 px-2 py-2 ">{renderContent()}</main>
       </div>
     </div>
   );

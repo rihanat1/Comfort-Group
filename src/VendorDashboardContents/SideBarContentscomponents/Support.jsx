@@ -2,7 +2,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
 import { IoIosCall } from "react-icons/io";
 import { MdKeyboardArrowUp, MdOutlineMail } from "react-icons/md";
-import questions from "../Faq.js";
+import VendorFaqs from "../VendorFaqs";
 import { useState } from "react";
 
 const Support = () => {
@@ -34,7 +34,7 @@ const Support = () => {
   }
   return (
     <section className="mx-2 ">
-      <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 mb-16">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 mb-10 xl:mb-8">
         {contents.map((content) => (
           <div
             key={content.title}
@@ -57,7 +57,7 @@ const Support = () => {
           </div>
         ))}
       </div>
-      <div className="border rounded-xl shadow-[0_0_10px_#0002] p-4 xl:p-6 xl:flex xl:flex-row xl:gap-8 xl:items-start ">
+      <div className="border rounded-xl shadow-[0_0_10px_#0002] p-4 xl:p-6 xl:flex xl:flex-row xl:gap-8 xl:items-start xl:h-fit ">
         <div className="flex gap-3 pb-6 border-b xl:border-b-0 whitespace-nowrap xl:border-gray-200 xl:pr-8 xl:w-[30%] xl:flex-col xl:gap-4 xl:pb-0">
           <div className="shrink-0 w-12 h-12 xl:w-14 xl:h-14 flex items-center justify-center text-green text-2xl bg-green/10 rounded-full">
             <GrNotes />
@@ -72,8 +72,8 @@ const Support = () => {
           </div>
         </div>
 
-        <div className="mt-4 xl:mt-0 xl:w-[70%] h-[446px] flex flex-col gap-3 overflow-y-scroll [scrollbar-width:thin] [scrollbar-color:#0b2a66_#f3f4f6] pr-2">
-          {questions.map((q, i) => (
+        <div className="mt-4 xl:mt-0 xl:w-[70%] h-[446px] xl:h-[379px] flex flex-col gap-3 overflow-y-scroll [scrollbar-width:thin] [scrollbar-color:#0b2a66_#f3f4f6] pr-2">
+          {VendorFaqs.map((q, i) => (
             <div
               key={i}
               onClick={() => handleAccordionIndex(i)}
